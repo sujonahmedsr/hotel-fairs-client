@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         primay: '#4D869C',
+        primay1: '#7AB2B2',
         back: '#EEF7FF',
       },
     },

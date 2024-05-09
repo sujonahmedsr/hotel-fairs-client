@@ -19,7 +19,7 @@ const Navbar = () => {
         </NavLink>
     </>
     return (
-        <div className="bg-back border-b-2">
+        <div className="bg-back border-b-2 fixed z-10 left-0 right-0">
             <div className="navbar container mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -30,7 +30,7 @@ const Navbar = () => {
                             {navLinks}
                         </ul>
                     </div>
-                    <Link to={'/'} className="text-2xl text-primay font-black cursor-pointer">Hotel.Fair</Link>
+                    <Link to={'/'} className="text-2xl text-primay font-black cursor-pointer hover:text-cyan-600">Hotel.Fair</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 text-lg">
@@ -38,7 +38,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to={'/login'} className="px-8 py-3 bg-primay text-white font-medium rounded">Login</Link>
+                    <Link to={'/login'} className="px-8 py-3 bg-primay hover:bg-cyan-600 text-white font-medium rounded">Login</Link>
                 </div>
             </div>
         </div>
