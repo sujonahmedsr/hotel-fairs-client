@@ -1,6 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
+import useAuth from "../AuthProvider/useAuth";
 
 const Navbar = () => {
+    const { user, logOut } = useAuth()
+    const hangleLogOut = () => {
+        logOut()
+        // toast('log out successfully')
+    }
     const styleNav = ({ isActive }) => {
         return {
             fontWeight: isActive ? "bold" : "",
@@ -38,7 +44,12 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to={'/login'} className="px-8 py-3 bg-primay hover:bg-cyan-600 text-white font-medium rounded">Login</Link>
+                    {
+                        user ? <button onClick={hangleLogOut} className="px-8 py-3 bg-primay hover:bg-cyan-600 text-white font-medium rounded">Log Out</button>
+                        :
+                        <Link to={'/login'} className="px-8 py-3 bg-primay hover:bg-cyan-600 text-white font-medium rounded">Login</Link>
+                    }
+                    
                 </div>
             </div>
         </div>
