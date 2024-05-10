@@ -3,6 +3,7 @@ import { createContext, useEffect, useState } from "react";
 
 // import 'react-toastify/dist/ReactToastify.css';
 import { auth } from "../firebase/firebase";
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext(null)
 
@@ -23,11 +24,11 @@ const AuthProvider = ({ children }) => {
     const logOut = () => {
         signOut(auth)
             .then(() => {
-                console.log('log Out success full');
+                toast.success('log Out success full');
                 
             })
             .catch((error) => {
-                console.log(error);
+                toast.error(error);
             });
 
     }

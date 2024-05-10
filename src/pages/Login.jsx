@@ -3,6 +3,7 @@ import loginImg from '../assets/Login.gif'
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../firebase/firebase';
 import useAuth from '../AuthProvider/useAuth';
+import { toast } from 'react-toastify';
 const Login = () => {
     const { signInMethod } = useAuth()
     const handleSignInMethod = e => {
@@ -15,11 +16,11 @@ const Login = () => {
             .then(res => {
                 console.log(res.user);
                 // navigate(location?.pathname ? location.pathname : '/')
-                // toast('login successfully')
+                toast.success('login successfully')
             })
             .catch(error => {
                 console.log(error);
-                return console.log('Invalid email or password');
+                return toast.error('Invalid email or password');
             })
     }
 
@@ -31,7 +32,7 @@ const Login = () => {
             .then(res => {
                 console.log(res.user);
                 // navigate(location?.state ? location.state : '/')
-                // toast('login successfully with google account')
+                toast.success('login successfully with google account')
             })
             .catch(error => console.log(error))
     }

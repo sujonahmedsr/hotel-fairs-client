@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+    //   fontFamily: {
+    //   'sans': ['ui-sans-serif', 'system-ui', ...],
+    // }
       colors: {
         primay: '#4D869C',
         primay1: '#7AB2B2',

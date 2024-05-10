@@ -4,7 +4,7 @@ import Footer from "../Footer";
 
 const MainRoots = () => {
     return (
-        <div>
+        <div className="font-oleoScript">
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>
