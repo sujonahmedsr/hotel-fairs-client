@@ -1,4 +1,5 @@
 import cover from '../assets/contactinfo.jpg'
+import { Map, Marker } from "pigeon-maps"
 const ContactUs = () => {
     return (
         <div className="py-24 px-3 container mx-auto">
@@ -12,13 +13,13 @@ const ContactUs = () => {
             <section>
                 <div>
                     <div>
-                        <div className="flex-1 lg:flex lg:items-center lg:-mx-6 bg-white">
-                            <div className="lg:w-1/2 lg:mx-6 p-5 shadow-lg">
-                                <h1 className="font-bold text-primay capitalize  text-3xl">
+                        <div className="flex-1 lg:flex lg:items-center bg-white">
+                            <div className="lg:w-1/2 shadow-lg">
+                                <h1 className="font-bold text-primay capitalize  text-3xl p-5">
                                     Contact us for more info
                                 </h1>
 
-                                <div className="mt-6 space-y-8 md:mt-8">
+                                <div className="mt-6 space-y-8 md:mt-8 p-5">
                                     <p className="flex items-start -mx-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-2 text-blue-500 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" >
                                             <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -26,8 +27,7 @@ const ContactUs = () => {
                                         </svg>
 
                                         <span className="mx-2 text-gray-700 w-72 dark:text-gray-400">
-                                            Cecilia Chapman 711-2880 Nulla
-                                            St. Mankato Mississippi 96522
+                                            Stadium Road, S S Road, Sirajganj Sadar, Sirajganj, Bangladesh
                                         </span>
                                     </p>
 
@@ -48,7 +48,7 @@ const ContactUs = () => {
                                     </p>
                                 </div>
 
-                                <div className="mt-6 w-80 md:mt-8">
+                                <div className="mt-6 w-80 md:mt-8 p-5">
                                     <h3 className="text-gray-600 dark:text-gray-300 ">Follow us</h3>
 
                                     <div className="flex mt-4 -mx-1.5 ">
@@ -82,7 +82,7 @@ const ContactUs = () => {
                             </div>
 
                             <div className="mt-8 lg:w-1/2 lg:mx-6">
-                                <div className="w-full px-8 py-10 mx-auto overflow-hidden bg-white shadow-2xl rounded-xl dark:bg-gray-900 lg:max-w-xl">
+                                <div className="w-full p-5 mx-auto overflow-hidden bg-white shadow-2xl rounded-xl dark:bg-gray-900 lg:max-w-xl">
                                     <h1 className="text-2xl font-semibold text-primay dark:text-gray-200">Contact form</h1>
 
                                     <p className="mt-2 text-gray-500 dark:text-gray-400">
@@ -113,9 +113,15 @@ const ContactUs = () => {
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </section>
+            <div className="py-10 px-3">
+            <Map height={400} defaultCenter={[24.455447, 89.709901]} defaultZoom={11}>
+                <Marker width={50} anchor={[24.455447, 89.709901]} />
+            </Map>
+        </div>
         </div>
     );
 };
