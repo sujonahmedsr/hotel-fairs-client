@@ -14,9 +14,9 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 
 const RoomCom = ({ room }) => {
-    const { description, availability, room_images } = room;
+    const { _id, description, availability, room_images } = room;
     return (
-        <Link data-aos="fade-up"
+        <Link to={`/roomDetails/${_id}`} data-aos="fade-up"
             className='border p-5 hover:scale-110 duration-300'>
             <Swiper
                 spaceBetween={30}

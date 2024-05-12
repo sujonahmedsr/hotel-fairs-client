@@ -141,7 +141,6 @@ const Home = () => {
                     <Marker width={50} anchor={[24.455447, 89.709901]} />
                 </Map>
             </div>
-
         </div>
     );
 };
