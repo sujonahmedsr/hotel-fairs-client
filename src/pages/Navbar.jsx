@@ -17,6 +17,12 @@ const Navbar = () => {
         <NavLink style={styleNav} to={'/'}>
             <li className="px-5 py-2">Home</li>
         </NavLink>
+        <NavLink style={styleNav} to={'/rooms'}>
+            <li className="px-5 py-2">Rooms</li>
+        </NavLink>
+        <NavLink style={styleNav} to={'/myBooking'}>
+            <li className="px-5 py-2">My Booking</li>
+        </NavLink>
         <NavLink to={'/about'} style={styleNav}>
             <li className="px-5 py-2">About Us</li>
         </NavLink>

@@ -4,8 +4,10 @@ import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../firebase/firebase';
 import useAuth from '../AuthProvider/useAuth';
 import { toast } from 'react-toastify';
+import { useState } from 'react';
 const Login = () => {
-    const { signInMethod } = useAuth()
+    const [error , setError] = useState(null)
+    const { signInMethod, user, loading } = useAuth()
     const handleSignInMethod = e => {
         e.preventDefault()
         const from = e.target;
@@ -20,7 +22,7 @@ const Login = () => {
             })
             .catch(error => {
                 console.log(error);
-                return toast.error('Invalid email or password');
+                return setError('Invalid email or password')
             })
     }
 
@@ -36,6 +38,8 @@ const Login = () => {
             })
             .catch(error => console.log(error))
     }
+
+    if(user || loading) return 
     
     return (
         <div className="flex items-center flex-col lg:flex-row justify-between container mx-auto py-24 px-3">
@@ -50,7 +54,7 @@ const Login = () => {
 
                 <div className="mt-4">
                     <label className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200" >Email Address</label>
-                    <input id="LoggingEmailAddress" name='email' placeholder='enter email' className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="email" />
+                    <input id="LoggingEmailAddress" required name='email' placeholder='enter email' className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="email" />
                 </div>
 
                 <div className="mt-4">
@@ -59,8 +63,12 @@ const Login = () => {
                         <a href="#" className="text-xs text-gray-500 dark:text-gray-300 hover:underline">Forget Password?</a>
                     </div>
 
-                    <input id="loggingPassword" name='password' placeholder='password' className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="password" />
+                    <input id="loggingPassword" required name='password' placeholder='password' className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="password" />
                 </div>
+
+                {
+                    error && <p className='pt-5 text-red-700'>{error}</p>
+                }
 
                 <div className="mt-6">
                     <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-primay rounded-lg hover:bg-cyan-600 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
