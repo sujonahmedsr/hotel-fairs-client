@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 const RoomCom = ({ room }) => {
     const { description, availability, room_images } = room;
     return (
-        <div className='border p-5'>
+        <Link className='border p-5 hover:scale-105 duration-300'>
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}
@@ -44,11 +44,11 @@ const RoomCom = ({ room }) => {
             <div className='py-5'>
                 <h1 className='text-2xl font-bold text-primay'>{description}</h1>
             </div>
-            <Link className='float-end flex items-center gap-3 font-bold text-xl hover:text-primay duration-300 transition'>
+            <div className='float-end flex items-center gap-3 font-bold text-xl hover:text-primay duration-300 transition'>
                 <button>View Details</button>
                 <FaArrowRightLong></FaArrowRightLong>
-            </Link>
-        </div>
+            </div>
+        </Link>
     );
 };
 
