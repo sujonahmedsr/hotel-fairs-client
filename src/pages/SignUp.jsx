@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import { useState } from "react";
 
 const SignUp = () => {
-    const { createUser, user, loading } = useAuth()
+    const { createUser, user,  loading } = useAuth()
     const [error, setError] = useState(null)
     const handleCreateUser = e => {
         e.preventDefault()
@@ -15,7 +15,6 @@ const SignUp = () => {
         const email = form.email.value;
         const photoUrl = form.photoUrl.value;
         const password = form.password.value;
-
         if (password.length < 6) {
             return setError('Password must be 6 character')
         }
@@ -31,7 +30,6 @@ const SignUp = () => {
                     displayName: name,
                     photoURL: photoUrl
                 })
-                // navigate('/')
                 toast('sign up successfully')
             })
             .catch(error => {

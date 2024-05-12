@@ -8,6 +8,7 @@ import AboutUs from "../pages/AboutUs";
 import ContactUs from "../pages/ContactUs";
 import AllRooms from "../pages/AllRooms";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
+import RoomsDetails from "../pages/RoomsDetails";
 
 export const router = createBrowserRouter([
   {
@@ -32,7 +33,11 @@ export const router = createBrowserRouter([
         element: <PrivateRoutes>
           <AllRooms></AllRooms>
         </PrivateRoutes>
-
+      },
+      {
+        path: '/roomDetails/:id',
+        element: <RoomsDetails></RoomsDetails>,
+        loader: ({params}) => fetch(`${import.meta.env.VITE_API_LINK}/rooms/${params.id}`)
       },
       {
         path: '/about',

@@ -34,8 +34,6 @@ const AuthProvider = ({ children }) => {
     }
 
 
-    
-
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
@@ -47,8 +45,6 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
-    
-
     const authInfo = {
         user,
         loading,
@@ -56,8 +52,6 @@ const AuthProvider = ({ children }) => {
         signInMethod,
         logOut
     }
-
-    
     return (
         <AuthContext.Provider value={authInfo}>
             {children}
