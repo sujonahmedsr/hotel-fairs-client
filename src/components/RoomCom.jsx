@@ -1,6 +1,10 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FaArrowRightLong } from "react-icons/fa6";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 
 // Import Swiper styles
 import 'swiper/css';
@@ -12,7 +16,8 @@ import { Link } from 'react-router-dom';
 const RoomCom = ({ room }) => {
     const { description, availability, room_images } = room;
     return (
-        <Link className='border p-5 hover:scale-105 duration-300'>
+        <Link data-aos="fade-up"
+            className='border p-5 hover:scale-110 duration-300'>
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}

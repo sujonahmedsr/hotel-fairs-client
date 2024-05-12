@@ -49,7 +49,7 @@ const Home = () => {
                         <img className='h-[80vh] w-full object-cover object-center' src={slider1} alt="" />
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
-                            <div className="max-w-md">
+                            <div data-aos="fade-right" data-aos-duration="3000" className="max-w-md ">
                                 <h1 className="text-5xl font-bold text-white pb-5">Welcome Hotel.Fair</h1>
                                 <p className="mb-5 text-xl">Experience the pinnacle of hospitality at our hotel fair, where every moment is crafted to perfection, ensuring memories that last a lifetime.</p>
                                 <Link to={'/allRooms'}><button className="px-8 py-3 rounded-full font-bold bg-primay hover:bg-cyan-600 text-xl">Book Now</button></Link>
@@ -62,7 +62,7 @@ const Home = () => {
                         <img className='h-[80vh] w-full object-cover object-center' src={slider2} alt="" />
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
-                            <div className="max-w-md">
+                            <div data-aos="fade-right" data-aos-duration="3000" className="max-w-md">
                                 <h1 className="text-5xl font-bold text-white pb-5">Welcome Hotel.Fair</h1>
                                 <p className="mb-5 text-xl">Unveiling the epitome of opulence and comfort, our hotel fair promises an unparalleled experience for discerning travelers.</p>
                                 <Link to={'/allRooms'}><button className="px-8 py-3 rounded-full font-bold bg-primay hover:bg-cyan-600 text-xl">Book Now</button></Link>
@@ -75,7 +75,7 @@ const Home = () => {
                         <img className='h-[80vh] w-full object-cover object-center' src={slider3} alt="" />
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
-                            <div className="max-w-md">
+                            <div data-aos="fade-right" data-aos-duration="3000" className="max-w-md">
                                 <h1 className="text-5xl font-bold text-white pb-5">Welcome Hotel.Fair</h1>
                                 <p className="mb-5 text-xl">Our culinary offerings are a gastronomic delight, with world-class chefs crafting exquisite dishes that tantalize the palate. </p>
                                 <Link to={'/allRooms'}><button className="px-8 py-3 rounded-full font-bold bg-primay hover:bg-cyan-600 text-xl">Book Now</button></Link>
@@ -88,7 +88,7 @@ const Home = () => {
                         <img className='h-[80vh] w-full object-cover object-center' src={slider4} alt="" />
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
-                            <div className="max-w-md">
+                            <div data-aos="fade-right" data-aos-duration="3000" className="max-w-md">
                                 <h1 className="text-5xl font-bold text-white pb-5">Welcome Hotel.Fair</h1>
                                 <p className="mb-5 text-xl">From sunrise to sunset, our Swimmingful Hotel invites you to experience the epitome of aquatic luxury, where every dip is a journey into blissful serenity.</p>
                                 <Link to={'/allRooms'}><button className="px-8 py-3 rounded-full font-bold bg-primay hover:bg-cyan-600 text-xl">Book Now</button></Link>
