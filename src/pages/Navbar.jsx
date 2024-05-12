@@ -17,7 +17,7 @@ const Navbar = () => {
         <NavLink style={styleNav} to={'/'}>
             <li className="px-5 py-2">Home</li>
         </NavLink>
-        <NavLink style={styleNav} to={'/rooms'}>
+        <NavLink style={styleNav} to={'/allRooms'}>
             <li className="px-5 py-2">Rooms</li>
         </NavLink>
         <NavLink style={styleNav} to={'/myBooking'}>

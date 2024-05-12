@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../firebase/firebase";
 import useAuth from "../AuthProvider/useAuth";
@@ -39,7 +39,7 @@ const SignUp = () => {
             })
     }
 
-    if(user || loading) return 
+    if(user || loading) return <Navigate to={'/'}></Navigate>
     return (
         <div className="py-24 px-3">
             <form onSubmit={handleCreateUser} className=" container mx-auto px-6 py-8 md:px-8 max-w-lg border shadow-xl">

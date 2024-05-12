@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import loginImg from '../assets/Login.gif'
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../firebase/firebase';
@@ -39,7 +39,7 @@ const Login = () => {
             .catch(error => console.log(error))
     }
 
-    if(user || loading) return 
+    if(user || loading) return <Navigate to={'/'}></Navigate>
     
     return (
         <div className="flex items-center flex-col lg:flex-row justify-between container mx-auto py-24 px-3">
