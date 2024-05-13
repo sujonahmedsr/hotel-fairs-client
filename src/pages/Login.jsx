@@ -1,10 +1,13 @@
 import { Link, Navigate } from 'react-router-dom';
 import loginImg from '../assets/Login.gif'
+import offerImg from '../assets/sliders/slider1.jpg'
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../firebase/firebase';
 import useAuth from '../AuthProvider/useAuth';
 import { toast } from 'react-toastify';
 import { useState } from 'react';
+import Swal from 'sweetalert2'
+
 const Login = () => {
     const [error , setError] = useState(null)
     const { signInMethod, user, loading } = useAuth()
@@ -34,6 +37,14 @@ const Login = () => {
             .then(res => {
                 console.log(res.user);
                 // navigate(location?.state ? location.state : '/')
+                Swal.fire({
+                    title: "Offers!",
+                    text: "We have many offers if you book a room you will get this offer. Like 50%, free dinner etc",
+                    imageUrl: offerImg,
+                    imageWidth: 400,
+                    imageHeight: 400,
+                    imageAlt: "Custom image"
+                  });
                 toast.success('login successfully with google account')
             })
             .catch(error => console.log(error))
