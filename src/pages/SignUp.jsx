@@ -4,6 +4,8 @@ import { auth } from "../firebase/firebase";
 import useAuth from "../AuthProvider/useAuth";
 import { toast } from "react-toastify";
 import { useState } from "react";
+import Swal from "sweetalert2";
+import offerImg from '../assets/sliders/slider1.jpg'
 
 const SignUp = () => {
     const { createUser, user,  loading } = useAuth()
@@ -30,6 +32,14 @@ const SignUp = () => {
                     displayName: name,
                     photoURL: photoUrl
                 })
+                Swal.fire({
+                    title: "Offers!",
+                    text: "We have many offers if you book a room you will get this offer. Like 50%, free dinner etc",
+                    imageUrl: offerImg,
+                    imageWidth: 400,
+                    imageHeight: 400,
+                    imageAlt: "Custom image"
+                  });
                 toast('sign up successfully')
             })
             .catch(error => {

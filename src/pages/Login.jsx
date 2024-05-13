@@ -21,6 +21,14 @@ const Login = () => {
             .then(res => {
                 console.log(res.user);
                 // navigate(location?.pathname ? location.pathname : '/')
+                Swal.fire({
+                    title: "Offers!",
+                    text: "We have many offers if you book a room you will get this offer. Like 50%, free dinner etc",
+                    imageUrl: offerImg,
+                    imageWidth: 400,
+                    imageHeight: 400,
+                    imageAlt: "Custom image"
+                  });
                 toast.success('login successfully')
             })
             .catch(error => {

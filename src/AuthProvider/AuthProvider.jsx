@@ -4,6 +4,7 @@ import { createContext, useEffect, useState } from "react";
 // import 'react-toastify/dist/ReactToastify.css';
 import { auth } from "../firebase/firebase";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 export const AuthContext = createContext(null)
 
@@ -11,9 +12,9 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true)
 
-    const createUser = (email, password) =>{
+    const createUser = (email, password) => {
         setLoading(true)
-       return createUserWithEmailAndPassword(auth, email, password)
+        return createUserWithEmailAndPassword(auth, email, password)
     }
 
     const signInMethod = (email, password) => {
@@ -25,7 +26,7 @@ const AuthProvider = ({ children }) => {
         signOut(auth)
             .then(() => {
                 toast.success('log Out success full');
-                
+
             })
             .catch((error) => {
                 toast.error(error);
@@ -36,9 +37,24 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            const userEmail = currentUser?.email || user?.email
+            const loggedUser = { email: userEmail }
+
             setUser(currentUser);
             console.log(currentUser);
             setLoading(false)
+
+            if (currentUser) {
+                axios.post(`${import.meta.env.VITE_API_LINK}/jwt`, loggedUser, { withCredentials: true })
+                    .then(res => {
+                        console.log(res.data);
+                    })
+            }else{
+                axios.post(`${import.meta.env.VITE_API_LINK}/jwt`, loggedUser, {withCredentials: true})
+                .then(res =>{
+                    console.log(res.data);
+                })
+            }
         })
         return () => {
             unsubscribe()

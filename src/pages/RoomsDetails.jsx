@@ -11,10 +11,18 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { useState } from "react";
+import BookingModal from "./BookingModal";
+
 
 const RoomsDetails = () => {
     const room = useLoaderData()
-    const { description, availability, room_images, price_per_night, room_size, special_offers } = room;
+    const { _id, description, availability, room_images, price_per_night, room_size, special_offers } = room;
+    const [modal, setModal] = useState(false)
+
+    const handleBookNow = () =>{
+        setModal(!modal)
+    }
     return (
         <div className="py-24 px-3 container mx-auto">
             <div
@@ -81,6 +89,7 @@ const RoomsDetails = () => {
                         </div>
                         <div className="flex items-center justify-center text-3xl font-bold">
                             <button
+                            onClick={()=>handleBookNow(_id)}
                             disabled={availability === 'All Ready Booked'}
                             className={`bg-black $} text-white text-xl font-bold rounded px-8 py-3`}>{
                                 availability === 'All Ready Booked' ? 'Already Booked' : 'Book Now'
@@ -88,6 +97,9 @@ const RoomsDetails = () => {
                         </div>
                     </div>
                 </div>
+                {
+                    modal && <BookingModal handleBookNow={handleBookNow} room={room} ></BookingModal>
+                }
             </div>
         </div>
     );

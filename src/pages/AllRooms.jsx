@@ -5,7 +5,7 @@ import RoomCom from "../components/RoomCom";
 const AllRooms = () => {
     const [rooms, setRooms] = useState([])
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API_LINK}/rooms`)
+        axios.get(`${import.meta.env.VITE_API_LINK}/rooms`, {withCredentials: true})
             .then(res => {
                 setRooms(res.data);
             })
