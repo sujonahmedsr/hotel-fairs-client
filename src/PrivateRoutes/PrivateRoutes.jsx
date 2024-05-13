@@ -1,10 +1,11 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../AuthProvider/useAuth";
 import { Audio } from 'react-loader-spinner'
 
 
 const PrivateRoutes = ({ children }) => {
     const { user, loading } = useAuth()
+    const location = useLocation()
     if (loading) {
         return <div className="pt-28 container mx-auto text-center flex items-center justify-center">
             <Audio
@@ -22,7 +23,7 @@ const PrivateRoutes = ({ children }) => {
         return children
     }
 
-    return <Navigate to={'/login'}></Navigate>
+    return <Navigate state={location.pathname} to={'/login'}></Navigate>
 
 };
 

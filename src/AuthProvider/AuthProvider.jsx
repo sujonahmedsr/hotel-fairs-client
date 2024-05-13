@@ -26,7 +26,6 @@ const AuthProvider = ({ children }) => {
         signOut(auth)
             .then(() => {
                 toast.success('log Out success full');
-
             })
             .catch((error) => {
                 toast.error(error);
@@ -59,7 +58,7 @@ const AuthProvider = ({ children }) => {
         return () => {
             unsubscribe()
         }
-    }, [])
+    }, [user?.email])
 
     const authInfo = {
         user,

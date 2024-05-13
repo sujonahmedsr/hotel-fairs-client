@@ -1,4 +1,4 @@
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import loginImg from '../assets/Login.gif'
 import offerImg from '../assets/sliders/slider1.jpg'
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
@@ -11,6 +11,7 @@ import Swal from 'sweetalert2'
 const Login = () => {
     const [error , setError] = useState(null)
     const { signInMethod, user, loading } = useAuth()
+    const navigate = useNavigate()
     const handleSignInMethod = e => {
         e.preventDefault()
         const from = e.target;
@@ -20,7 +21,7 @@ const Login = () => {
         signInMethod(email, password)
             .then(res => {
                 console.log(res.user);
-                // navigate(location?.pathname ? location.pathname : '/')
+                navigate(location?.state ? location.state : '/')
                 Swal.fire({
                     title: "Offers!",
                     text: "We have many offers if you book a room you will get this offer. Like 50%, free dinner etc",
@@ -44,7 +45,7 @@ const Login = () => {
         signInWithPopup(auth, googleProvider)
             .then(res => {
                 console.log(res.user);
-                // navigate(location?.state ? location.state : '/')
+                navigate(location?.state ? location.state : '/')
                 Swal.fire({
                     title: "Offers!",
                     text: "We have many offers if you book a room you will get this offer. Like 50%, free dinner etc",
