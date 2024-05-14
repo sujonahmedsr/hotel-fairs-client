@@ -19,8 +19,13 @@ import ClientReview from "../components/ClientReview";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import RoomCom from "../components/RoomCom";
+import OfferModal from "./OfferModal";
 const Home = () => {
     const [rooms, setRooms] = useState([])
+    const [offer, setOffer] = useState(true)
+    const handleModal = ()=>{
+        setOffer(!offer)
+    }
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_LINK}/rooms`, {withCredentials: true})
             .then(res => {
@@ -141,6 +146,9 @@ const Home = () => {
                     <Marker width={50} anchor={[24.455447, 89.709901]} />
                 </Map>
             </div>
+            {
+                offer && <OfferModal handleModal={handleModal}></OfferModal>
+            }
         </div>
     );
 };
