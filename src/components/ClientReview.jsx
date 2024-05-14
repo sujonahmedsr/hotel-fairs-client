@@ -19,10 +19,9 @@ const ClientReview = () => {
                 setReviews(res.data)
             })
     }, [])
-    console.log(reviews);
     return (
         <div>
-            <section className="bg-white dark:bg-gray-900 pt-20">
+            <section className="bg-white pt-20">
                 <div className="container px-6 py-10 mx-auto">
                     <h1 className="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">
                         What clients saying
@@ -50,14 +49,14 @@ const ClientReview = () => {
                         {
                             reviews.map(review => <SwiperSlide key={review._id}>
                                 <div className="max-w-3xl mx-auto py-10">
-                                    <p className="text-gray-500 lg:mx-8 space-y-5">
+                                    <div className="text-gray-500 lg:mx-8 space-y-5">
                                         <b className="">Room Booked: {review.roomTitle} </b>
                                         {review.customerReview}
                                         <div className="float-right">
                                             <p className="text-sm text-gray-500 dark:text-gray-400 font-bold">Review Date : {review.reviewDate}</p>
                                             <p className="text-sm text-gray-500 dark:text-gray-400 font-bold">Ratings : {review.ratings}</p>
                                         </div>
-                                    </p>
+                                    </div>
 
                                     <div className="flex flex-col items-center justify-center mt-8">
                                         <img className="object-cover rounded-full w-14 h-14" src="https://source.unsplash.com/80x80/?portrait?1" alt="" />

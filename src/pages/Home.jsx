@@ -100,7 +100,7 @@ const Home = () => {
 
             <div className="pt-24">
                 <div className="pb-10">
-                    <h1 className="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">
+                    <h1 className="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl">
                         Featured Rooms
                     </h1>
 
@@ -127,7 +127,7 @@ const Home = () => {
 
             <div className="pt-20">
                 <div className="pb-10">
-                    <h1 className="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">
+                    <h1 className="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl">
                         Our Location
                     </h1>
 

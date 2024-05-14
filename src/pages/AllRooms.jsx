@@ -14,7 +14,7 @@ const AllRooms = () => {
     return (
         <div className="py-24 px-3 container mx-auto">
             <div className="py-10">
-                <h1 className="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">
+                <h1 className="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl ">
                     Our Rooms
                 </h1>
 
