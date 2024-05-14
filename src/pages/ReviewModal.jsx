@@ -26,7 +26,7 @@ const ReviewModal = ({ room, reviewModal }) => {
             ratings,
             customerReview
         }
-        axios.post(`${import.meta.env.VITE_API_LINK}/reviews`, userReviews)
+        axios.post(`${import.meta.env.VITE_API_LINK}/reviews`, userReviews, {withCredentials: true})
         .then(res =>{
             console.log(res.data);
             if(res.data.insertedId){

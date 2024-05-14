@@ -22,7 +22,7 @@ import RoomCom from "../components/RoomCom";
 const Home = () => {
     const [rooms, setRooms] = useState([])
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API_LINK}/rooms`)
+        axios.get(`${import.meta.env.VITE_API_LINK}/rooms`, {withCredentials: true})
             .then(res => {
                 setRooms(res.data);
             })
@@ -98,7 +98,7 @@ const Home = () => {
                 </SwiperSlide>
             </Swiper>
 
-            <div className="py-10">
+            <div className="pt-24">
                 <div className="pb-10">
                     <h1 className="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">
                         Featured Rooms

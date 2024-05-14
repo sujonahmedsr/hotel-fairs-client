@@ -19,9 +19,11 @@ const Navbar = () => {
         <NavLink style={styleNav} to={'/allRooms'}>
             <li className="px-5 py-2">Rooms</li>
         </NavLink>
-        <NavLink style={styleNav} to={'/myRooms'}>
+        {
+            user && <NavLink style={styleNav} to={'/myRooms'}>
             <li className="px-5 py-2">My Booking</li>
         </NavLink>
+        }
         <NavLink to={'/about'} style={styleNav}>
             <li className="px-5 py-2">About Us</li>
         </NavLink>

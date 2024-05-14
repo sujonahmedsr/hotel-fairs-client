@@ -14,7 +14,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 
 const RoomCom = ({ room }) => {
-    const { _id, description, availability, room_images } = room;
+    const { _id, description, price_per_night, availability, room_images } = room;
     return (
         <Link to={`/roomDetails/${_id}`} data-aos="fade-up"
             className='border p-5 hover:scale-110 duration-300'>
@@ -38,8 +38,10 @@ const RoomCom = ({ room }) => {
                         <div className="relative h-72">
                             <img className='h-72 w-full object-cover object-center' src={image} alt="" />
                             <div className="absolute top-0 w-full bg-black bg-opacity-30 h-full">
-                                <div className='bg-primay p-3'>
+                                <div className='bg-primay p-3 flex items-center justify-between'>
                                     <h1 className="font-bold text-xl text-white ">{availability}</h1>
+                                    <h1 className="font-bold text-xl text-white "> 
+                                    $ {price_per_night}</h1>
                                 </div>
                             </div>
                         </div>

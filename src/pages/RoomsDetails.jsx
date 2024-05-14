@@ -11,14 +11,26 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BookingModal from "./BookingModal";
+import axios from "axios";
 
 
 const RoomsDetails = () => {
     const room = useLoaderData()
     const { _id, description, availability, room_images, price_per_night, room_size, special_offers } = room;
     const [modal, setModal] = useState(false)
+
+    const [reviews, setReviews] = useState([])
+    useEffect(()=>{
+        axios.get(`http://localhost:5000/reviews`)
+        .then(res =>{
+            setReviews(res.data);
+        })
+    },[])
+
+    const filter = reviews.filter(review => review.roomTitle === description)
+    // console.log(filter);
 
     const handleBookNow = () =>{
         setModal(!modal)
@@ -100,6 +112,19 @@ const RoomsDetails = () => {
                 {
                     modal && <BookingModal handleBookNow={handleBookNow} room={room} ></BookingModal>
                 }
+                <div className="py-16">
+                    <h1 className="text-3xl pb-5">Review ({filter.length})</h1>
+                    <div className="grid grid-cols-1 lg:grid-cols-2  gap-6">
+                    {
+                        filter.map(review => <div className="border p-5 space-y-3 border-primay" key={review._id}>
+                            <h1>{review.customerReview}</h1>
+                            <p>Name : <span className="font-bold text-xl"> {review.reviewUser}</span> </p>
+                            <p>Date : <span className="font-bold text-xl"> {review.reviewDate}</span> </p>
+                            <p>Rating : <span className="font-bold text-xl"> {review.ratings}</span> </p>
+                        </div>)
+                    }
+                    </div>
+                </div>
             </div>
         </div>
     );

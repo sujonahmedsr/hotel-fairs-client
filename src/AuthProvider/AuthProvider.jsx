@@ -49,7 +49,7 @@ const AuthProvider = ({ children }) => {
                         console.log(res.data);
                     })
             }else{
-                axios.post(`${import.meta.env.VITE_API_LINK}/jwt`, loggedUser, {withCredentials: true})
+                axios.post(`${import.meta.env.VITE_API_LINK}/logOut`, loggedUser, {withCredentials: true})
                 .then(res =>{
                     console.log(res.data);
                 })
