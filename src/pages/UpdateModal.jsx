@@ -8,8 +8,6 @@ import Swal from "sweetalert2";
 
 const UpdateModal = ({room, handleUpdate}) => {
     const { _id, room_Title,  price, room_Size, offer, bookingDate } = room;
-    console.log(room);
-    console.log(_id);
     const [startDate, setStartDate] = useState(bookingDate);
     const {user} = useAuth()
     const handleUpdateDate = e =>{
