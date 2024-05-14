@@ -38,7 +38,6 @@ const BookingModal = ({handleBookNow, room}) => {
 
         axios.post(`${import.meta.env.VITE_API_LINK}/myRooms`, bookingData, {withCredentials: true})
         .then(res =>{
-            console.log(res.data.insertedId);
             Swal.fire({
                 title: "Are booking this room?",
                 icon: 'question',

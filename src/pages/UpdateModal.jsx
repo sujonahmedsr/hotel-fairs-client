@@ -75,7 +75,7 @@ const UpdateModal = ({room, handleUpdate}) => {
 
 
                 <button className="w-full px-6 py-3 mt-4 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-primay rounded-lg hover:bg-cyan-600 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
-                    Booking Now
+                    Update Date
                 </button>
 
                 <div onClick={handleUpdate} className="cursor-pointer absolute top-0 right-0 text-3xl pr-2">
