@@ -4,9 +4,12 @@ import "react-datepicker/dist/react-datepicker.css";
 import useAuth from "../AuthProvider/useAuth";
 import { RxCross2 } from "react-icons/rx";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const UpdateModal = ({room, handleUpdate}) => {
     const { _id, room_Title,  price, room_Size, offer, bookingDate } = room;
+    console.log(room);
+    console.log(_id);
     const [startDate, setStartDate] = useState(bookingDate);
     const {user} = useAuth()
     const handleUpdateDate = e =>{
@@ -18,6 +21,15 @@ const UpdateModal = ({room, handleUpdate}) => {
         axios.patch(`${import.meta.env.VITE_API_LINK}/myRooms/${_id}`, update, {withCredentials: true})
         .then(res =>{
             console.log(res.data);
+            if(res.data.modifiedCount > 0){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Update Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                  })
+                  handleUpdate(false)
+            }
         })
     }
 

@@ -6,11 +6,13 @@ import { MdDelete } from "react-icons/md";
 import 'react-tooltip/dist/react-tooltip.css'
 import Swal from "sweetalert2";
 import UpdateModal from "./UpdateModal";
+import ReviewModal from "./ReviewModal";
 
 const MyRooms = () => {
     const [myRooms, setMyRooms] = useState([])
     const { user } = useAuth()
     const [update, setUpdate] = useState(false)
+    const [review, setReview] = useState(false)
 
     const getData = () => {
         axios.get(`${import.meta.env.VITE_API_LINK}/myRooms?email=${user?.email}`, { withCredentials: true })
@@ -25,6 +27,10 @@ const MyRooms = () => {
 
     const handleUpdate = () =>{
         setUpdate(!update)
+    }
+
+    const reviewModal = () =>{
+        setReview(!review)
     }
 
 
@@ -136,6 +142,13 @@ const MyRooms = () => {
                                                 <FaEdit onClick={handleUpdate} className="cursor-pointer"></FaEdit>
                                                 <MdDelete onClick={() => handleDelete(room._id)} className="cursor-pointer"></MdDelete>
                                             </td>
+
+                                            <td className='px-4 py-4 text-sm text-gray-500  whitespace-nowrap'>
+                                                <button onClick={reviewModal} className="bg-primay text-white font-semibold px-4 py-3 rounded hover:bg-cyan-600 duration-300">Add Review</button>
+                                            </td>
+                                            {
+                                                review && <ReviewModal room={room} reviewModal={reviewModal}></ReviewModal>
+                                            }
                                         </tr>)
                                     }
                                 </tbody>
