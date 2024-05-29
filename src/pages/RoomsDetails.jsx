@@ -23,7 +23,7 @@ const RoomsDetails = () => {
 
     const [reviews, setReviews] = useState([])
     useEffect(()=>{
-        axios.get(`http://localhost:5000/reviews`)
+        axios.get(`${import.meta.env.VITE_API_LINK}/reviews`)
         .then(res =>{
             setReviews(res.data);
         })

@@ -20,14 +20,15 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import RoomCom from "../components/RoomCom";
 import OfferModal from "./OfferModal";
+import FAQ from "./FAQ";
 const Home = () => {
     const [rooms, setRooms] = useState([])
     const [offer, setOffer] = useState(true)
-    const handleModal = ()=>{
+    const handleModal = () => {
         setOffer(!offer)
     }
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API_LINK}/rooms`, {withCredentials: true})
+        axios.get(`${import.meta.env.VITE_API_LINK}/rooms`, { withCredentials: true })
             .then(res => {
                 setRooms(res.data);
             })
@@ -127,6 +128,8 @@ const Home = () => {
                     </Link>
                 </div>
             </div>
+
+            <FAQ></FAQ>
 
             <ClientReview></ClientReview>
 
